@@ -10,22 +10,22 @@ function App() {
     const fetchEvents = async () => {
       setLoading(true)
       const res = await fetch('https://eonet.gsfc.nasa.gov/api/v3/events')
+      // const res = await fetch('https://eonet.gsfc.nasa.gov/api/v3/events?category=wildfires')
       const { events } = await res.json()
 
       setEventData(events)
       setLoading(false)
-    }
-
-    fetchEvents()
-    console.log(eventData);
-  }, []);
-
+    }    
+    fetchEvents();
+  }, 
+  []);
+  // console.log(eventData)
 
   return (
     <div>
      { !loading ? <Map eventData={eventData} /> : <Loader /> }
     </div>
   );
-}
+};
 
 export default App;
