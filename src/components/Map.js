@@ -1,17 +1,23 @@
 import React from 'react'
+import { useState } from 'react';
 import GoogleMapReact from "google-map-react";
 import LocationMarker from './LocationMarker';
+import LocationInfoBox from './LocationInfoBox';
 const Map = ({ eventData, center, zoom}) => {
-  console.log(eventData);
+  console.log(eventData); // Full data source
+
+  const [locationInfo, setLocationInfo] = useState(null)  
+
   const markers = eventData.map(ev => {
     if(ev.categories[0].id === "wildfires") {
       // return <LocationMarker lat={ev.geometries[0].coordinates[1]} lon={ev.geometries[0].coordinates[0]} />  
-      return <LocationMarker lat={ev.geometry[0].coordinates[1]} lng={ev.geometry[0].coordinates[0]} />  
+      return <LocationMarker lat={ev.geometry[0].coordinates[1]} lng={ev.geometry[0].coordinates[0]}
+              onClick={() => setLocationInfo({ id: ev.id, title: ev.title, date: ev.geometry[0].date })} />  
     }
     return null
     }
     )
-    console.log(markers);
+    console.log(markers); // Filtered data only id=wildfires
   return (
     <div className="map">
       <GoogleMapReact
@@ -22,6 +28,7 @@ const Map = ({ eventData, center, zoom}) => {
         {markers}
         {/* <LocationMarker lat={center.lat} lon={center.lng} /> */}
       </GoogleMapReact>
+      {locationInfo && <LocationInfoBox info={locationInfo} />}
     </div>
   )
 }
