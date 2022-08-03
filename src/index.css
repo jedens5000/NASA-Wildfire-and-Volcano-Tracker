@@ -1,6 +1,49 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.header {
+  padding-bottom: 20px;
+  /* background-color: firebrick; */
+  background-color: slategrey;
+  color: white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 25px;
+  /* padding: 0; */
+  margin: 0;
+  /* text-align: center; */
+}
+.header p {
+  /* font-size: 25px; */
+  padding: 0;
+  margin: 0;
+  /* text-align: center; */
+}
+
+.header-fire {
+  color: red; 
+  font-size: 50px;
+  position: relative;
+  right: 25px;
+  top: 20px;
+}
+
+.header-volcano {
+  /* color: red;  */
+  font-size: 50px;
+  position: relative;
+  left: 25px;
+  top: 20px;
 }
 
 .map {
@@ -12,6 +55,8 @@ body {
 .location-icon {
   font-size: 2rem;
   color: red;
+  position: absolute;
+  transform: translate(-50%, -50%);
 }
 
 .loader {
@@ -24,9 +69,10 @@ body {
 
 .location-info {
   position: absolute;
-  top: 50px;
-  right: 50px;
-  width: 400px;
+  top: 120px;
+  /* right: 50px; */
+  left: 30px;
+  width: 500px;
   min-height: 200px;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.6);
