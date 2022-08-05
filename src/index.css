@@ -31,7 +31,7 @@ body {
 }
 
 .header-fire {
-  color: red; 
+  color: red;
   font-size: 50px;
   position: relative;
   right: 25px;
@@ -57,6 +57,7 @@ body {
   color: red;
   position: absolute;
   transform: translate(-50%, -50%);
+  cursor: pointer;
 }
 
 .loader {
