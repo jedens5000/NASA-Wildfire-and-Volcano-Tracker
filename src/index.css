@@ -90,3 +90,15 @@ body {
 .location-info li {
   padding: 5px 0;
 }
+
+@media screen and (max-width: 730px) {
+  .header-fire {
+    display: none;
+  }
+  .header-volcano {
+    display: none;
+  }
+  .header {
+    padding: 20px 0;
+  }
+}
